@@ -4,7 +4,7 @@ google.charts.setOnLoadCallback(function() { initialize('') });
 function initialize() {
   document.getElementById('orgchart_admin').innerHTML = "<i class='fa fa-spinner fa-spin fa-3x fa-fw'></i>";
 
-  var dataSourceUrl = 'https://docs.google.com/spreadsheets/d/1FFv7c4F1EVzSXoH_B9CsSafKmK32iHvvTPx-PP9zdds/gviz/tq?';
+  var dataSourceUrl = 'https://docs.google.com/spreadsheets/d/12W2y9pI-JfYLuAH7gZbxUSVQMqnoqB7uYdLVDQof-4Y/gviz/tq?';
 
   // Tells it that the first row contains headers: 'Role', 'Reports To', 'Name'
   var query = new google.visualization.Query(dataSourceUrl + '&headers=1');

@@ -34,10 +34,12 @@ function handleQueryResponse(response) {
     var reportsTo = raw_data.getValue(i,1);
     var name = raw_data.getValue(i,2) != null ? raw_data.getValue(i,2) : '';
     var description = raw_data.getValue(i,3) != null ? raw_data.getValue(i,3) : '';
+    var alternateRole = raw_data.getValue(i,4);
+    var displayRole = alternateRole != null ? alternateRole : role;
 
     data.addRows([[
       { v: role,
-        f: "<div class='role'>" + role + "</div>" + "<div class='name'>" + name + "</div>"
+        f: "<div class='role'>" + displayRole + "</div>" + "<div class='name'>" + name + "</div>"
       },
       reportsTo,
       description]]);

@@ -37,9 +37,18 @@ function handleQueryResponse(response) {
     var alternateRole = raw_data.getValue(i,4);
     var displayRole = alternateRole != null ? alternateRole : role;
 
+    var roleDiv = "<div class='role'>" + displayRole + "</div>"
+    var nameDiv = "<div class='name'>" + name + "</div>";
+    var descriptionDiv = "";
+
+    if (description != "") {
+      descriptionDiv = "<div class='job-description'>" + description + "</div>";
+    }
+
+
     data.addRows([[
       { v: role,
-        f: "<div class='role'>" + displayRole + "</div>" + "<div class='name'>" + name + "</div>"
+        f: "<div class='role-container'>" + roleDiv + nameDiv + descriptionDiv + "</div>"
       },
       reportsTo,
       description]]);

@@ -5,3 +5,22 @@ div {
 div.name {
   font-weight: normal;
 }
+
+div.job-description {
+  font-size: 10pt;
+  font-weight: normal;
+  display: none;
+}
+
+.google-visualization-orgchart-nodesel .role-container {
+  display: block;
+  min-height: 100px;
+  width: 400px;
+}
+
+.google-visualization-orgchart-nodesel .job-description {
+  display: block;
+  text-align: left;
+  border-top: 1px solid #e3ca4b;
+  padding-top: 20px;
+}

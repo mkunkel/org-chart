@@ -4,7 +4,11 @@ google.charts.setOnLoadCallback(function() { initialize('') });
 function initialize() {
   document.getElementById('orgchart_admin').innerHTML = "<i class='fa fa-spinner fa-spin fa-3x fa-fw'></i>";
 
-  var dataSourceUrl = 'https://docs.google.com/spreadsheets/d/12W2y9pI-JfYLuAH7gZbxUSVQMqnoqB7uYdLVDQof-4Y/gviz/tq?';
+  // Provide sheet ID in the sheet param to change the data source
+  var sheetId = new URLSearchParams(window.location.search).get('sheet');
+  sheetId = sheetId ? sheetId : '12W2y9pI-JfYLuAH7gZbxUSVQMqnoqB7uYdLVDQof-4Y';
+
+  var dataSourceUrl = 'https://docs.google.com/spreadsheets/d/' + sheetId + '/gviz/tq?';
 
   // Tells it that the first row contains headers: 'Role', 'Reports To', 'Name'
   var query = new google.visualization.Query(dataSourceUrl + '&headers=1');
@@ -36,7 +40,6 @@ function handleQueryResponse(response) {
     var description = raw_data.getValue(i,3) != null ? raw_data.getValue(i,3) : '';
     var alternateRole = raw_data.getValue(i,4);
     var displayRole = alternateRole != null ? alternateRole : role;
-
     var roleDiv = "<div class='role'>" + displayRole + "</div>"
     var nameDiv = "<div class='name'>" + name + "</div>";
     var descriptionDiv = "";
